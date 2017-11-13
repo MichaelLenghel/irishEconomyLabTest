@@ -25,6 +25,7 @@ void loadData()
   
 }//end loadData
 
+//Q4 (We do this since it is important when we map it)
 void calcMinMax()
 {
   //Assign to first element as a starting point
@@ -43,6 +44,7 @@ void calcMinMax()
   }//end for
 }//end calcMinMax
 
+//Q4
 void drawLineAndGraph()
 {
   stroke(255);
@@ -64,9 +66,21 @@ void drawLineAndGraph()
   }//end for
 }//end drawLineAndGraph
 
+//Q5
 void drawGDPAmount()
 {
-  
+  if (mouseX >= border && mouseX <= height - border)
+  {
+    stroke(255, 0, 0);
+    fill(255, 0, 0);
+    line(mouseX, border, mouseX, height - border);
+    int i = (int) map(mouseX, border, width - border, 0, data.size() - 1);
+    float y = map(data.get(i).amountGDP, min, max, height - border, border);
+    ellipse(mouseX, y, 5, 5);
+    fill(255);
+    text("Year: " + data.get(i).year, mouseX + 10, y);
+    text("GDP (Mill$): " + data.get(i).amountGDP, mouseX + 10, y + 10);
+  }//end if
 }//end drawGDPAmount
 
 void draw()
