@@ -4,7 +4,7 @@ void setup()
 {
   //Sets size of screen
   size(500, 500);
-  loadData();//laods data from file
+  loadDataInFile();//laods data from file
   calcMinMax();
 }//end sertup
 
@@ -13,7 +13,7 @@ ArrayList<GDP> data = new ArrayList<GDP>();
 float border = width * 0.2f, min, max;
 
 //Q3
-void loadData()
+void loadDataInFile()
 {
   data.clear();
   Table t = loadTable("gdp.csv");
@@ -24,7 +24,7 @@ void loadData()
     data.add(gdp);
   }//end for
   
-}//end loadData
+}//end loadDataInFile
 
 //Q4 (We do this since it is important when we map it)
 void calcMinMax()
